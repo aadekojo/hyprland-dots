@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # INSTALL PACKAGES
 sudo pacman -S --noconfirm --needed hyprland
 sudo pacman -S --noconfirm --needed xdg-desktop-portal-hyprland
