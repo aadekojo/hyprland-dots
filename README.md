@@ -32,7 +32,7 @@ cd yay
 makepkg -si
 ```
 
-### Installation
+## Setup Script
 run the installation script:
 
     $  ./install-hypr.sh
