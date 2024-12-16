@@ -9,6 +9,13 @@
   </a>
 </div><br>
 
+## Overview
+- Window Manager
+    - Hyprland
+- Terminal
+    - Kitty
+- Editors
+    - Vim
 
 ## Installation
 
