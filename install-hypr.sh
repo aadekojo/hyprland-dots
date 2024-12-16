@@ -54,6 +54,8 @@ if [[ $inst =~ ^[Yy]$ ]]; then
 # AUR packages
    aur_pkgs="grimblast-git aylurs-gtk-shell-git hyprpolkitagent brave-bin"
 
+# Force sudo to prompt for a password
+sudo -k
 # Ensure the script has sudo privileges
 if ! sudo -v; then
     echo "Error: This script requires sudo privileges."
