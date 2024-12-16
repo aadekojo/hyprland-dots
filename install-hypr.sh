@@ -54,6 +54,13 @@ if [[ $inst =~ ^[Yy]$ ]]; then
 # AUR packages
    aur_pkgs="grimblast-git aylurs-gtk-shell-git hyprpolkitagent brave-bin"
 
+# Ensure the script has sudo privileges
+if ! sudo -v; then
+    echo "Error: This script requires sudo privileges."
+    exit 1
+fi
+
+
 # Install official packages
 if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
        print_error " Failed to install official packages - please check the install.log \n"
