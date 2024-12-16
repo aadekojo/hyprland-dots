@@ -40,3 +40,5 @@ yay -S --noconfirm --needed brave-bin
 #sudo pacman -S --noconfirm --needed hyprpaper
 #sudo pacman -S --noconfirm --needed hyprlock
 #sudo pacman -S --noconfirm --needed hypridle
+
+echo "Done installing!................."

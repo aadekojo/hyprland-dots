@@ -54,14 +54,6 @@ if [[ $inst =~ ^[Yy]$ ]]; then
 # AUR packages
    aur_pkgs="grimblast-git aylurs-gtk-shell-git hyprpolkitagent brave-bin"
 
-# Force sudo to prompt for a password
-sudo -k
-# Ensure the script has sudo privileges
-if ! sudo -v; then
-    echo "Error: This script requires sudo privileges."
-    exit 1
-fi
-
 
 # Install official packages
 if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
@@ -101,9 +93,6 @@ fi
 read -n1 -rep "${CAT} Would you like to copy config files? (y,n)" CFG
 if [[ $CFG =~ ^[Yy]$ ]]; then
     printf " Copying config files...\n"
-    mkdir -p ~/.config/hypr
-    mkdir -p ~/.config/kitty
-    mkdir -p ~/.config/rofi
     cp -r hyprland-dots/.config/hypr ~/.config/ 2>&1 | tee -a $LOG
     cp -r hyprland-dots/.config/kitty ~/.config/ 2>&1 | tee -a $LOG
     cp -r hyprland-dots/.config/rofi ~/.config/ 2>&1 | tee -a $LOG
