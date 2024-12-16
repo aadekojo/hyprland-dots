@@ -3,6 +3,13 @@
     <h3></h3>
 </div>
 
+<div align="center">
+<br>
+  <a href="#installation"><kbd> <br> Installation <br> </kbd></a>&ensp;&ensp;
+  </a>
+</div><br>
+
+
 ## Installation
 
 Ensure base-devel is installed before proceeding
