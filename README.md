@@ -12,6 +12,10 @@
 
 ## Installation
 
+This is mostly tested for Arch-based Distros
+
+Testing how to quickly setup a function hyprland on a minimal arch install
+
 Ensure base-devel is installed before proceeding
 
 ## Install Yay
