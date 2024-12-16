@@ -32,6 +32,11 @@ cd yay
 makepkg -si
 ```
 
+## Clone the Repo
+```
+git clone https://github.com/aadekojo/hyprland-dots.git
+```
+
 ## Setup Script
 run the installation script:
 

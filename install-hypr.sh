@@ -46,7 +46,7 @@ if [[ $inst =~ ^[Nn]$ ]]; then
 
 if [[ $inst =~ ^[Yy]$ ]]; then
     #Offcial repository packages
-   hypr_pkgs="hyprland wl-clipboard rofi-wayland sddm noto-fonts ttf-font-awesome"
+   hypr_pkgs="hyprland wl-clipboard rofi-wayland sddm noto-fonts ttf-font-awesome xdg-desktop-portal-hyprland"
    app_pkgs="nwg-look qt6-wayland qt5-wayland qt5ct btop jq gvfs mpv playerctl vlc brightnessctl pamixer noise-suppression-for-voice"
    app_pkgs2="viewnior pavucontrol thunar tumbler thunar-archive-plugin thunar-volman xdg-user-dirs"
    theme_pkgs="nordic-theme"
