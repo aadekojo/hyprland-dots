@@ -6,9 +6,9 @@ sudo pacman -S --noconfirm --needed kitty
 #sudo pacman -S --noconfirm --needed xorg-xwayland
 
 sudo pacman -S --noconfirm --needed ttf-font-awesome
-sudo pacman -S --noconfirm --needed waybar
-sudo pacman -S --noconfirm --needed wlogout
-sudo pacman -S --noconfirm --needed pamixer
+#sudo pacman -S --noconfirm --needed waybar
+#sudo pacman -S --noconfirm --needed wlogout
+#sudo pacman -S --noconfirm --needed pamixer
 sudo pacman -S --noconfirm --needed pavucontrol
 sudo pacman -S --noconfirm --needed wl-clipboard
 sudo pacman -S --noconfirm --needed brightnessctl
@@ -16,10 +16,10 @@ sudo pacman -S --noconfirm --needed pipewire
 sudo pacman -S --noconfirm --needed libgtop
 sudo pacman -S --noconfirm --needed bluez
 sudo pacman -S --noconfirm --needed bluez-utils
+sudo pacman -S --noconfirm --needed mpv viewnior pavucontrol thunar tumbler thunar-archive-plugin thunar-volman xdg-user-dirs
 
-sudo pacman -S --noconfirm --needed qt6-wayland
-sudo pacman -S --noconfirm --needed qt5-wayland
-sudo pacman -S --noconfirm --needed qt5ct
+
+sudo pacman -S --noconfirm --needed qt6-wayland qt5-wayland qt5ct btop jq gvfs mpv playerctl vlc brightnessctl pamixer noise-suppression-for-voice
 sudo pacman -S --noconfirm --needed kvantum
 sudo pacman -S --noconfirm --needed nwg-look
 
