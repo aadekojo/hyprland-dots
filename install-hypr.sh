@@ -15,7 +15,7 @@ printf "$(tput setaf 2) Welcome to the Arch Linux Hyprland installer!\n $(tput s
 sleep 2
 
 printf "$YELLOW PLEASE BACKUP YOUR FILES BEFORE PROCEEDING!
-This script will overwrite some of your configs and files!"
+This script will overwrite some of your configs and files!\n"
 
 sleep 2
 
@@ -57,14 +57,12 @@ if [[ $inst =~ ^[Yy]$ ]]; then
 
 # Install official packages
 if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
-       print_error " Failed to install official packages - please check the install.log \n"
+       print_error "Failed to install official packages - please check the install.log \n"
        exit 1
    fi
 
-   echo
-   echo "AUR packages need to be installed seperately: $aur_pkgs"
-   sleep 1
-
+# AUR packages
+    echo -e "\n${YELLOW}Installing AUR packages: $aur_pkgs"
 # Check for yay or paru
     if command -v yay &> /dev/null; then
         aur_helper="yay"
@@ -78,25 +76,17 @@ if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | 
     if ! $aur_helper -S --noconfirm $aur_pkgs 2>&1 | tee -a $LOG; then
         print_error " Failed to install additional packages - please check the install.log \n"
         exit 1
-    fi
-    xdg-user-dirs-update
-    echo
-    print_success " All necessary packages installed successfully."
+    fi 
 
-else
-    echo
-    print_error " Packages not installed - please check the install.log"
-    sleep 1
-fi
+    xdg-user-dirs-update
+    print_success " All necessary packages installed successfully."
 
 ### Copy Config Files ###
 read -n1 -rep "${CAT} Would you like to copy config files? (y,n)" CFG
 if [[ $CFG =~ ^[Yy]$ ]]; then
     printf " Copying config files...\n"
-    cp -r hyprland-dots/.config/hypr ~/.config/ 2>&1 | tee -a $LOG
-    cp -r hyprland-dots/.config/kitty ~/.config/ 2>&1 | tee -a $LOG
-    cp -r hyprland-dots/.config/rofi ~/.config/ 2>&1 | tee -a $LOG
-
+    cp -r hyprland-dots/.config/{hypr,kitty,rofi} ~/.config/ 2>&1 | tee -a $LOG
+    print_success "Config files copied successfully."
 fi
 
 FONT_DIR="$HOME/.local/share/fonts"
@@ -104,32 +94,17 @@ FONT_ZIP="$FONT_DIR/FiraCode.zip"
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
 # Check if FiraCode Nerd-font is already installed
+    echo "Installing FiraCode Nerd Fonts..."
 if fc-list | grep -qi "FiraCode"; then
     echo "FiraCode Nerd-fonts are already installed."
-    exit 0
-fi
-
-echo "Installing FiraCode Nerd-fonts..."
-
-# Download the font zip file if it doesn't already exist
-if [ ! -f "$FONT_ZIP" ]; then
-    wget -O "$FONT_ZIP" "$FONT_URL" || {
-        echo "Failed to download FiraCode Nerd-fonts from $FONT_URL"
-        exit 1
-    }
+    mkdir -p "$FONT_DIR"
+    wget -O "$FONT_ZIP" "$FONT_URL" || { print_error "Failed to download FiraCode font."; exit 1; }
+    unzip -o "$FONT_ZIP" -d "$FONT_DIR" && rm "$FONT_ZIP"
+    fc-cache -fv
+    print_success "FiraCode Nerd Fonts installed successfully."
 else
-    echo "FiraCode.zip already exists in $FONT_DIR, skipping download."
+    echo "FiraCode Nerd Fonts are already installed."
 fi
-
-if [ ! -d "$FONT_DIR/FiraCode" ]; then
-    unzip -o "$FONT_ZIP" -d "$FONT_DIR" || {
-        echo "Failed to unzip $FONT_ZIP"
-        exit 1
-    }
-else
-    echo "FiraCode font files already unzipped in $FONT_DIR, skipping unzip."
-fi
-rm "$FONT_ZIP"
 fc-cache -fv # Rebuild the font cache
 echo "FiraCode Nerd-fonts installed successfully"
 
@@ -178,6 +153,7 @@ else
 ### Script is done ###
 printf "\n${GREEN} Installation Completed.\n"
 echo -e "${GREEN} You can start Hyprland by typing Hyprland (note the capital H).\n"
+
 read -n1 -rep "${CAT} Would you like to start Hyprland now? (y,n)" HYP
 if [[ $HYP =~ ^[Yy]$ ]]; then
     if command -v Hyprland >/dev/null; then
