@@ -8,7 +8,7 @@ CAT="$(tput setaf 6)[ACTION]$(tput sgr0)"
 LOG="install.log"
 
 # Set the script to exit on error
-set -e
+set +e
 
 printf "$(tput setaf 2) Welcome to the Arch Linux Hyprland installer!\n $(tput sgr0)"
 
@@ -58,8 +58,9 @@ if [[ $inst =~ ^[Yy]$ ]]; then
 # Install official packages
 if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
        print_error "Failed to install official packages - please check the install.log \n"
-       exit 1
-   fi
+       else
+        print_success "Official packages installed successfully."
+    fi
 
 # AUR packages
     echo -e "\n${YELLOW}Installing AUR packages: $aur_pkgs"
@@ -70,13 +71,14 @@ if ! sudo pacman -S --needed --noconfirm $hypr_pkgs $app_pkgs $app_pkgs2 2>&1 | 
         aur_helper="paru"
     else
         print_error "Neither yay nor paru found. Please install one of them to continue."
-        exit 1
+        continue  # Skip the error and continue with the script
     fi
 
     if ! $aur_helper -S --noconfirm $aur_pkgs 2>&1 | tee -a $LOG; then
         print_error " Failed to install additional packages - please check the install.log \n"
-        exit 1
-    fi 
+        else
+        print_success "AUR packages installed successfully."
+    fi
 
     xdg-user-dirs-update
     print_success " All necessary packages installed successfully."
