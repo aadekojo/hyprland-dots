@@ -35,12 +35,13 @@ makepkg -si
 ## Clone the Repo
 ```
 git clone https://github.com/aadekojo/hyprland-dots.git
+cd hyprland-dots
+chmod +x hypr-software.sh
 ```
 
-## Setup Script
 run the installation script:
 
-    $  ./install-hypr.sh
+    $  ./hypr-software.sh
 
 ## References
 
