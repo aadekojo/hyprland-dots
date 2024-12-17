@@ -64,4 +64,5 @@ git clone "https://aur.archlinux.org/yay.git"
 cd yay
 makepkg -si
 
+printf " ---------------------------installed YAY--------------------\n "
 echo "This is a test and nothing was installed after yay"
