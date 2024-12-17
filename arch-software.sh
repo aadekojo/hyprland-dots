@@ -1,10 +1,10 @@
 #!/bin/bash
 #-------------------------------------------------------------------------------------
-#     ___              __       _____       ______                              
-#    /   |  __________/ /_     / ___/____  / __/ /__      ______ ______________ 
+#     ___              __       _____       ______
+#    /   |  __________/ /_     / ___/____  / __/ /__      ______ ______________
 #   / /| | / ___/ ___/ __ \    \__ \/ __ \/ /_/ __/ | /| / / __ `/ ___/ ___/ _ \
 #  / ___ |/ /  / /__/ / / /   ___/ / /_/ / __/ /_ | |/ |/ / /_/ / /  / /  /  __/
-# /_/  |_/_/   \___/_/ /_/   /____/\____/_/  \__/ |__/|__/\__,_/_/  /_/   \___/                                                                             
+# /_/  |_/_/   \___/_/ /_/   /____/\____/_/  \__/ |__/|__/\__,_/_/  /_/   \___/
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ echo
 echo "INSTALLING SOFTWARE.........."
 echo
 
-PKGS=( 
+PKGS=(
     # SYSTEM --------------------------------------------------------------
 
     # 'linux-lts'             # Long term support kernel
@@ -22,7 +22,7 @@ PKGS=(
     'fastfetch'             # Shows system info when you launch terminal
     'openssh'               # SSH connectivity tools
     'unzip'                 # Zip compression program
-    'kitty'                 # Terminal Emulator 
+    'kitty'                 # Terminal Emulator
 
     # DISK UTILITIES ------------------------------------------------------
     'gparted'               # Disk utility
@@ -31,6 +31,7 @@ PKGS=(
     'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
     'git'                   # Version control system
+    'wget'                  # CLI downloader
 
     # MEDIA ---------------------------------------------------------------
     'vlc'                   # Video player
