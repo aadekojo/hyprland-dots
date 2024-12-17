@@ -27,6 +27,10 @@ PKGS=(
     # DISK UTILITIES ------------------------------------------------------
     'gparted'               # Disk utility
 
+    # SYSTEM UTILITIES ----------------------------------------------------
+    'network-manager-applet' #Network applet for network manager
+    'net-tools'             # Network tools and apps
+
     # DEVELOPMENT ---------------------------------------------------------
     'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
@@ -44,6 +48,7 @@ PKGS=(
 
     #FONTS ----------------------------------------------------------------
     'ttf-font-awesome'      #font awesonme
+    'ttf-fira-code'         #firaCode font
 )
 
 for PKG in "${PKGS[@]}"; do
