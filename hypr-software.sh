@@ -8,7 +8,7 @@ sudo pacman -S --noconfirm --needed kitty
 #sudo pacman -S --noconfirm --needed xorg-xwayland
 
 sudo pacman -S --noconfirm --needed ttf-font-awesome
-#sudo pacman -S --noconfirm --needed waybar
+sudo pacman -S --noconfirm --needed waybar
 #sudo pacman -S --noconfirm --needed wlogout
 #sudo pacman -S --noconfirm --needed pamixer
 sudo pacman -S --noconfirm --needed pavucontrol
