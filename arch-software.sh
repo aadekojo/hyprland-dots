@@ -31,7 +31,7 @@ PKGS=(
     'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
     'git'                   # Version control system
-    'wget'                  # CLI downloader
+    'wget'
 
     # MEDIA ---------------------------------------------------------------
     'vlc'                   # Video player
